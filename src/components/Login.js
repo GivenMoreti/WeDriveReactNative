@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import {TouchableOpacity, TextInput, Text, SafeAreaView, StyleSheet, Button } from 'react-native';
+import {TouchableOpacity, TextInput, Text, View, StyleSheet, Button, ImageBackground } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -9,7 +9,10 @@ const Login = ({navigation}) => {
   const [text, setText] = useState('');
 
   return (
-    <SafeAreaView>
+    
+    <View style={styles.container}>
+      <ImageBackground resizeMode={'cover'} source={require("./bg.png")} style={styles.image}>
+      <View style={styles.viewCover}>
       <Text style={styles.text}>Login to your Account</Text>
       <TextInput
         editable
@@ -35,7 +38,7 @@ const Login = ({navigation}) => {
       />
       <Button
         title="Login" onPress={() => {
-
+          navigation.navigate('Home')
           console.log("Logged in to Trips Page");
         }}
         color={"#ff4500"}
@@ -46,8 +49,10 @@ const Login = ({navigation}) => {
         onPress={() => navigation.navigate('Register')}>
           <Text>Sign up</Text>
       </TouchableOpacity>
-
-    </SafeAreaView>
+      </View>
+      </ImageBackground>
+    </View>
+    
 
   );
 }
@@ -80,6 +85,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#DDDDDD',
     padding: 10,
-  },
+  },container:{
+    flex:1,
+    
+    justifyContent: 'center',
+  },image:{
+    flex:1,
+    justifyContent:'center',
+  },viewCover:{
+    color:'white',
+    borderRadius:5,
+    borderWidth:2,
+    borderColor:"#ff4500",
+    backgroundColor: '#000000c0',
+    lineHeight:300,
+    textAlign:"center",
+    fontWeight:"bold",
+  }
 });
 export default Login;

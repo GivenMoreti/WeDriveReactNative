@@ -1,11 +1,12 @@
 import { React, useState } from 'react';
-import {TouchableOpacity,  ImageBackground,TextInput, Text, SafeAreaView, StyleSheet, Button } from 'react-native';
+import {TouchableOpacity,  ImageBackground,TextInput, Text,View, StyleSheet, Button } from 'react-native';
 
 const Register = ({navigation}) => {
   const [text, setText] = useState('');
 
   return (
-    <SafeAreaView>
+    <View style={styles.container}>
+      <ImageBackground resizeMode={'cover'}source={require("./image2.jpeg")} style={styles.image} >
       <Text style={styles.text}>Register an Account</Text>
       <TextInput
         editable
@@ -42,6 +43,7 @@ const Register = ({navigation}) => {
 
       <Button
         title="Register" onPress={() => {
+          navigation.navigate('Home')
           console.log("registered");
         }}
         color={"#ff4500"}
@@ -51,7 +53,8 @@ const Register = ({navigation}) => {
         onPress={() => navigation.navigate('Login')}>
           <Text>Sign in</Text>
       </TouchableOpacity>
-    </SafeAreaView>
+      </ImageBackground>
+      </View>
 
 
   );
@@ -81,7 +84,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#DDDDDD',
     padding: 10,
-  },
+  },container:{
+    flex:1,
+   
+    justifyContent: 'center',
+  },image:{
+    flex:1,
+    justifyContent:'center',
+  }
 }
 );
 export default Register;

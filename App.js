@@ -6,6 +6,7 @@ import HomePage from "./src/components/HomePage";
 // navigation
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Tab = createBottomTabNavigator();
 // const Stack = createNativeStackNavigator();
@@ -15,10 +16,9 @@ const App = () => (
  
 <NavigationContainer>
   <Tab.Navigator>
-    <Tab.Screen name={'HomePage'} component={HomePage} />
-    <Tab.Screen name={'Register'} component={Register} />
-    <Tab.Screen name={'Login'} component={Login} />
-  
+    <Tab.Screen name={'Home'} options={{tabBarIcon:({color,size})=>(<MaterialCommunityIcons name="home" color={color} size={size}/>)}} component={HomePage} />
+    <Tab.Screen name={'Register'} options={{tabBarIcon:({color,size})=>(<MaterialCommunityIcons name="account" color={color} size={size}/>)}} component={Register} />
+    <Tab.Screen name={'Login'} options={{tabBarIcon:({color,size})=>(<MaterialCommunityIcons name="login" color={color} size={size}/>)}} component={Login} />
   </Tab.Navigator>
   </NavigationContainer>
 );
