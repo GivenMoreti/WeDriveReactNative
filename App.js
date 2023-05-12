@@ -1,18 +1,26 @@
 import React from "react";
 import { ImageBackground, StyleSheet, Text, View } from "react-native";
 import Login from "./src/components/Login";
-// const image = {uri: 'https://reactjs.org/logo-og.png'};
+import Register from "./src/components/Register";
+import HomePage from "./src/components/HomePage";
+// navigation
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+const Tab = createBottomTabNavigator();
+// const Stack = createNativeStackNavigator();
+
 
 const App = () => (
-  <View style={styles.container}>
-    <ImageBackground source={require("./assets/bg.png")} resizeMode="cover" style={styles.image}>
-      {/* main login form */}
-      <View style={styles.formView}>
-        <Text style={styles.text}>Login To Your Account</Text>
-        <Login />
-      </View>
-    </ImageBackground>
-  </View>
+ 
+<NavigationContainer>
+  <Tab.Navigator>
+    <Tab.Screen name={'HomePage'} component={HomePage} />
+    <Tab.Screen name={'Register'} component={Register} />
+    <Tab.Screen name={'Login'} component={Login} />
+  
+  </Tab.Navigator>
+  </NavigationContainer>
 );
 
 const styles = StyleSheet.create({
@@ -23,23 +31,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
   },
-  text: {
-    color: "white",
-    fontSize: 16,
-    fontWeight: "bold",
-    textAlign: "center",
-   
-  },
-  formView: {
-    
+    formView: {
     backgroundColor: "#000000c0",
     textAlign: "center",
     lineHeight: 100,
     padding: 20,
-    borderColor: "f194ff",
-    borderWidth: 2,
+    borderColor: "#ff4500",
+    borderWidth: 1,
+    borderRadius:5,
     alignContent: "center",
-  },
+    },
 });
 
 export default App;

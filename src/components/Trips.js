@@ -1,7 +1,7 @@
 import { React } from "react";
 import { SafeAreaView, FlatList, StyleSheet, Text, View } from "react-native";
 
-const Trip = () => {
+
     const DATA = [
         {
           id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -23,7 +23,7 @@ const Trip = () => {
         </View>
       );
       
-      const App = () => {
+      const Trip = () => {
         return (
           <SafeAreaView style={styles.container}>
             <FlatList
@@ -51,5 +51,5 @@ const Trip = () => {
         },
       });
 
-};
+
 export default Trip;
