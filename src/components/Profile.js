@@ -1,13 +1,20 @@
-const HomeScreen = ({navigation}) => {
-    return (
-      <Button
-        title="Go to Jane's profile"
-        onPress={() =>
-          navigation.navigate('Profile', {name: 'Jane'})
-        }
-      />
-    );
-  };
-  const ProfileScreen = ({navigation, route}) => {
-    return <Text>This is {route.params.name}'s profile</Text>;
-  };
+import React from 'react';
+import {View,Text} from 'react-native';
+
+
+// class UserProfile
+
+const UserProfile= ()=>{
+  return(
+    <View>
+      <Text>Username</Text>
+      <Text>Username</Text>
+      <Text>Username</Text>
+      <Text>Username</Text>
+
+    </View>
+
+  )
+}
+
+export default UserProfile;
